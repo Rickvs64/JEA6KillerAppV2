@@ -3,5 +3,8 @@
     <persistence-unit name="JEA6KillerApp" transaction-type="JTA">
         <jta-data-source>jdbc/mysql</jta-data-source>
         <class>Domains.Account</class>
+        <class>Domains.Gamemode</class>
+        <class>Domains.Hero</class>
+        <class>Domains.Match</class>
     </persistence-unit>
 </persistence>
