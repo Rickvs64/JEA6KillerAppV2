@@ -17,8 +17,6 @@ public class AccountTest extends FunctionalTest {
 
     @Test
     public void getAccountById() {
-        // Not yet implemented!
-
         given().when().get("/rest/account/1").then()
                 .statusCode(200)
                 .assertThat()

@@ -23,7 +23,7 @@ public class AccountRepo {
     }
 
 
-    public Account getAccountById(Long id) {
+    public Account getAccountById(Integer id) {
         return em.find(Account.class, id);
     }
 
@@ -31,10 +31,14 @@ public class AccountRepo {
     @Transactional(REQUIRED)
     public boolean addAccount(Account account) {
         try {
+            // em.getTransaction().begin();
             em.persist(account);
+            // em.getTransaction().commit();
             return true;
         }
         catch (Exception ex) {
+            // em.getTransaction().rollback();
+            // System.out.println(ex.getMessage());
             return false;
         }
     }

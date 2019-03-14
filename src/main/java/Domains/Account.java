@@ -13,9 +13,22 @@ public class Account implements Serializable {
     @Column(unique=true)
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length=15)
     private EPlatform platform = EPlatform.PC;
 
+    public Account() {
 
+    }
+
+    public Account(String name) {
+        this.name = name;
+    }
+
+    public Account(String name, EPlatform platform) {
+        this.name = name;
+        this.platform = platform;
+    }
 
     public Integer getId() {
         return id;
@@ -33,4 +46,11 @@ public class Account implements Serializable {
         this.name = name;
     }
 
+    public EPlatform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(EPlatform platform) {
+        this.platform = platform;
+    }
 }
