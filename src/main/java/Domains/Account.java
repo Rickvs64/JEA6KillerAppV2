@@ -1,6 +1,8 @@
 package Domains;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -10,9 +12,11 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
     @Column(unique=true)
     private String name;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(length=15)
     private EPlatform platform = EPlatform.PC;
