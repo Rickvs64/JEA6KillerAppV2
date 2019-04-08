@@ -7,6 +7,6 @@
         bean-discovery-mode="all">
 
     <interceptors>
-        <!-- <class>Interceptor.MyInterceptor</class> -->
+        <!-- <class>Interceptor.AccountInterceptor</class> -->
     </interceptors>
 </beans>

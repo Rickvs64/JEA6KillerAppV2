@@ -1,6 +1,4 @@
 package Servlets;
-
-import Domains.Account;
 import Repositories.AccountRepo;
 
 import javax.ejb.EJB;

@@ -1,8 +1,10 @@
 package Repositories;
 
 import Domains.Account;
+import Interceptor.AccountInterceptor;
 
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 
+@Interceptors(AccountInterceptor.class)
 @Stateless
 public class AccountRepo {
     @PersistenceContext(unitName = "JEA6KillerAppV2")
