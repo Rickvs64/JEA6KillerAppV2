@@ -13,6 +13,10 @@ public class Gamemode {
     private String description;
     private Float respawnTime;
 
+    public Gamemode() {
+
+    }
+
 
 
     public Integer getId() {

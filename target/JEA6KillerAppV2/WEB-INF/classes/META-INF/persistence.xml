@@ -6,14 +6,9 @@
         <class>Domains.Account</class>
         <class>Domains.Gamemode</class>
         <class>Domains.Hero</class>
-        <class>Domains.Match</class>
-        <!--<properties>-->
-            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>-->
-            <!--<property name="hibernate." value="" />-->
-            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
-            <!--<property name="hibernate.show_sql" value="true"/>-->
-            <!--<property name="hibernate.format_sql" value="true"/>-->
-            <!--<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />-->
-        <!--</properties>-->
+        <class>Domains.PlayedMatch</class>
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        </properties>
     </persistence-unit>
 </persistence>

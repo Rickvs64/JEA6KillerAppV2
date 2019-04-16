@@ -15,6 +15,10 @@ public class Hero {
     private Integer difficulty;
     private String portraitURL;
 
+    public Hero() {
+
+    }
+
 
 
     public Integer getId() {

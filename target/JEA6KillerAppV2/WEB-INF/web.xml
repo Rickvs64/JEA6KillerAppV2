@@ -41,4 +41,20 @@
     <realm-name>file</realm-name>
   </login-config>
 
+
+  <context-param>
+    <param-name>com.auth0.domain</param-name>
+    <param-value>dev-e03oe7vv.eu.auth0.com</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>com.auth0.clientId</param-name>
+    <param-value>Kkhi7TFrreeeejVbE6myPHfO1KcdAD8u</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>com.auth0.clientSecret</param-name>
+    <param-value>mFIBnHKVJXCSZ3KbCjuJH6U8qYZilFBNy-ua4iWWgXz3go2iC2TpuksTalqqJ8bo</param-value>
+  </context-param>
+
 </web-app>
