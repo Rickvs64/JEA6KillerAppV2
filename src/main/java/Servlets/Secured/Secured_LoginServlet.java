@@ -34,7 +34,7 @@ public class Secured_LoginServlet extends HttpServlet {
         String redirectUri = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/JEA6KillerAppV2/callback";
 
         String authorizeUrl = authenticationController.buildAuthorizeUrl(req, redirectUri)
-                .withAudience(String.format("https://JEA6KillerAppV2/CustomAPI", domain))
+                .withAudience(String.format("https://JEA6KillerAppCustomAPI", domain))
                 .build();
         res.sendRedirect(authorizeUrl);
     }

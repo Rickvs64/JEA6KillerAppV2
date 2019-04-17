@@ -49,12 +49,12 @@
 
   <context-param>
     <param-name>com.auth0.clientId</param-name>
-    <param-value>Kkhi7TFrreeeejVbE6myPHfO1KcdAD8u</param-value>
+    <param-value>mHTycFTWVCwDfzx1xy5fKjKo8s7W7hS9</param-value>
   </context-param>
 
   <context-param>
     <param-name>com.auth0.clientSecret</param-name>
-    <param-value>mFIBnHKVJXCSZ3KbCjuJH6U8qYZilFBNy-ua4iWWgXz3go2iC2TpuksTalqqJ8bo</param-value>
+    <param-value>Z6d1lV8CgERfKXWJyr8UpVGWuYwj-u-aVOvv-gy4eLyEA1hagrhYxsUIz5NLf8s3</param-value>
   </context-param>
 
 </web-app>
