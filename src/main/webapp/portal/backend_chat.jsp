@@ -34,5 +34,5 @@
     </table>
 </body>
 
-<script src="secured/websocket.js"></script>
+<script src="websocket.js"></script>
 </html>

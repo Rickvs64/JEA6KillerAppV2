@@ -21,6 +21,6 @@ public class Secured_HomeServlet extends HttpServlet {
         } else if (idToken != null) {
             req.setAttribute("userId", idToken);
         }
-        req.getRequestDispatcher("/secured/backend_home.jsp").forward(req, res);
+        req.getRequestDispatcher("/portal/backend_home.jsp").forward(req, res);
     }
 }

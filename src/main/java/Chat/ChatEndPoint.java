@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.*;
 
 @ApplicationScoped
-@ServerEndpoint(value="/chat/{username}")
+@ServerEndpoint(value="/portal/chat/{username}")
 public class ChatEndPoint {
 
     private static Set<Session> users = Collections.synchronizedSet(new HashSet<Session>());

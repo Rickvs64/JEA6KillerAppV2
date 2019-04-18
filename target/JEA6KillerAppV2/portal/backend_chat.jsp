@@ -27,12 +27,12 @@
         </tr>
         <tr>
             <td>
-                <input type="text" size="51" id="msg" placeholder="Message"/>
+                <input type="text" size="50" id="msg" placeholder="Message"/>
                 <button id="send" type="button" disabled onclick="send();" >Send</button>
             </td>
         </tr>
     </table>
 </body>
 
-<script src="secured/websocket.js"></script>
+<script src="websocket.js"></script>
 </html>
