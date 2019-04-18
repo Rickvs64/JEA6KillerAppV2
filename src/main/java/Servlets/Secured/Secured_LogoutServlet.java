@@ -23,8 +23,8 @@ public class Secured_LogoutServlet extends HttpServlet {
         // Currently experiencing a problem with logging out
         // The first option logs out but doesn't return to my application
         // The second option only works on Chrome (or other 3rd party) accounts
-        // response.sendRedirect("https://dev-e03oe7vv.eu.auth0.com/v2/logout");
-        response.sendRedirect("/JEA6KillerAppV2/login");
+        response.sendRedirect("https://dev-e03oe7vv.eu.auth0.com/v2/logout");
+        // response.sendRedirect("/JEA6KillerAppV2/login");
     }
 
 }
