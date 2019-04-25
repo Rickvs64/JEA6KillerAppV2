@@ -7,6 +7,6 @@
         bean-discovery-mode="all">
 
     <interceptors>
-        <!-- <class>Interceptor.AccountInterceptor</class> -->
+        <!-- <class>Interceptor.RepoInterceptorlass> -->
     </interceptors>
 </beans>

@@ -1,6 +1,6 @@
 package Repositories;
 
-import Domains.Account;
+import Domains.Hero;
 import Interceptor.RepoInterceptor;
 
 import javax.ejb.Stateless;
@@ -14,28 +14,28 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 
 @Interceptors(RepoInterceptor.class)
 @Stateless
-public class AccountRepo {
+public class HeroRepo {
+
     @PersistenceContext(unitName = "JEA6KillerAppV2")
     private EntityManager em;
 
-
-    public List<Account> getAllAccounts() {
+    public List<Hero> getAllHeroes() {
         // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
         //noinspection JpaQlInspection
-        return em.createQuery("SELECT a FROM Account a", Account.class).getResultList();
+        return em.createQuery("SELECT h FROM Hero h", Hero.class).getResultList();
     }
 
 
-    public Account getAccountById(Integer id) {
-        return em.find(Account.class, id);
+    public Hero getHeroById(Integer id) {
+        return em.find(Hero.class, id);
     }
 
 
     @Transactional(REQUIRED)
-    public boolean addAccount(Account account) {
+    public boolean addHero(Hero hero) {
         try {
             // em.getTransaction().begin();
-            em.persist(account);
+            em.persist(hero);
             // em.getTransaction().commit();
             return true;
         }
@@ -45,4 +45,5 @@ public class AccountRepo {
             return false;
         }
     }
+
 }

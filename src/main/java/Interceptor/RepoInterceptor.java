@@ -3,7 +3,7 @@ package Interceptor;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
 
-public class AccountInterceptor {
+public class RepoInterceptor {
     @AroundInvoke
     public Object interceptorMethod(InvocationContext context) throws Exception {
         System.out.println("Method has been requested: "+context.getMethod().getName() );

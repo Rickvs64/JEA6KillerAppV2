@@ -1,5 +1,7 @@
 package Domains;
 
+import org.json.JSONObject;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -56,5 +58,17 @@ public class Account implements Serializable {
 
     public void setPlatform(EPlatform platform) {
         this.platform = platform;
+    }
+
+    // Since Account restpoint follows HATEOAS implementation we need to manually return it as JSON
+    // This method isn't necessary for the other entities
+    public JSONObject toJSON() {
+        JSONObject response = new JSONObject();
+
+        response.put("id", this.id);
+        response.put("name", this.name);
+        response.put("platform", this.platform);
+
+        return response;
     }
 }

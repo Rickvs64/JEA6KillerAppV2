@@ -1,6 +1,7 @@
 package Domains;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Hero {
@@ -9,11 +10,14 @@ public class Hero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
+    @Column(unique=true)
     private String name;
 
+    @NotBlank
     private String description;
-    private Integer difficulty;
-    private String portraitURL;
+    private Integer difficulty = 1;
+    private String portraitURL = "default.png";
 
     public Hero() {
 
