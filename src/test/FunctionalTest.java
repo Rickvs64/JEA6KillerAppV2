@@ -1,5 +1,5 @@
 import io.restassured.RestAssured;
-import org.junit.BeforeClass;
+import org.testng.annotations.BeforeClass;
 
 public class FunctionalTest {
 
@@ -16,7 +16,7 @@ public class FunctionalTest {
 
         String basePath = System.getProperty("server.base");
         if(basePath==null){
-            basePath = "/JEA6KillerAppV2/";
+            basePath = "/JEA6KillerAppV2/rest/";
         }
         RestAssured.basePath = basePath;
 

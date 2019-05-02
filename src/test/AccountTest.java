@@ -3,24 +3,25 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class AccountTest extends FunctionalTest {
+public class AccountTest extends FunctionalTest{
+
     @Test
     public void basicPingTest() {
-        given().when().get("/").then().statusCode(200);
+        given().log().all().when().get("/account").then().statusCode(200);
     }
 
     @Test
     public void incorrectUrl() {
-        given().when().get("/rest/UNDEFINED").then()
+        given().log().all().when().get("/account/test").then()
                 .statusCode(404);
     }
 
     @Test
     public void getAccountById() {
-        given().when().get("/rest/account/1").then()
+        given().log().all().when().get("/account/1").then()
                 .statusCode(200)
                 .assertThat()
-                .body("name", equalTo("Admin"));
+                .body("result.id", equalTo(1));
     }
 
     @Test
