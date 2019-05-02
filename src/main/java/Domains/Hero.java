@@ -23,7 +23,10 @@ public class Hero {
 
     }
 
-
+    public Hero(@NotBlank String name, @NotBlank String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
