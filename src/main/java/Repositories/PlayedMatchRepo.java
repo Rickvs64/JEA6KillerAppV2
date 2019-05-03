@@ -20,6 +20,10 @@ public class PlayedMatchRepo {
     @PersistenceContext(unitName = "JEA6KillerAppV2")
     private EntityManager em;
 
+    /**
+     * Retrieve all matches ever played by anyone. May cause data strain: use with caution.
+     * @return Full list of all matches.
+     */
     public List<PlayedMatch> getAllMatches() {
         // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
         //noinspection JpaQlInspection
@@ -27,11 +31,21 @@ public class PlayedMatchRepo {
     }
 
 
+    /**
+     * Get a specific match by its ID.
+     * @param id ID to search for.
+     * @return Match object with corresponding ID.
+     */
     public PlayedMatch getMatchById(Integer id) {
         return em.find(PlayedMatch.class, id);
     }
 
 
+    /**
+     * Persist a given match to store in the database.
+     * @param match Match object to persist.
+     * @return Boolean that returns FALSE if this action fails for any reason.
+     */
     @Transactional(REQUIRED)
     public boolean addMatch(PlayedMatch match) {
         try {

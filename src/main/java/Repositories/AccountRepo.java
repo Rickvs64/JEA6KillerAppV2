@@ -19,6 +19,10 @@ public class AccountRepo {
     private EntityManager em;
 
 
+    /**
+     * Get all accounts.
+     * @return List of existing accounts.
+     */
     public List<Account> getAllAccounts() {
         // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
         //noinspection JpaQlInspection
@@ -26,11 +30,21 @@ public class AccountRepo {
     }
 
 
+    /**
+     * Get one account that matches the given ID.
+     * @param id Account ID to search for.
+     * @return Account object.
+     */
     public Account getAccountById(Integer id) {
         return em.find(Account.class, id);
     }
 
 
+    /**
+     * Persist a given account to store in the database.
+     * @param account Account object to persist.
+     * @return Boolean that returns FALSE if this action fails for any reason.
+     */
     @Transactional(REQUIRED)
     public boolean addAccount(Account account) {
         try {

@@ -20,6 +20,10 @@ public class GamemodeRepo {
     @PersistenceContext(unitName = "JEA6KillerAppV2")
     private EntityManager em;
 
+    /**
+     * Get all gamemodes.
+     * @return List of existing gamemodes, even ones that haven't been played yet by anyone.
+     */
     public List<Gamemode> getAllGamemodes() {
         // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
         //noinspection JpaQlInspection
@@ -27,11 +31,21 @@ public class GamemodeRepo {
     }
 
 
+    /**
+     * Get a specific gamemode by ID.
+     * @param id The gamemode ID to search for.
+     * @return The gamemode result.
+     */
     public Gamemode getGamemodeById(Integer id) {
         return em.find(Gamemode.class, id);
     }
 
 
+    /**
+     * Persist a given gamemode to store in the database.
+     * @param gamemode Gamemode object to persist.
+     * @return Boolean that returns FALSE if this action fails for any reason.
+     */
     @Transactional(REQUIRED)
     public boolean addGamemode(Gamemode gamemode) {
         try {

@@ -59,11 +59,11 @@ public class PlayedMatch {
         this.winningTeam = winningTeam;
     }
 
-    public String getDate() {
+    public String getActualDate() {
         return actualDate;
     }
 
-    public void setDate(String date) {
+    public void setActualDate(String date) {
         this.actualDate = date;
     }
 
