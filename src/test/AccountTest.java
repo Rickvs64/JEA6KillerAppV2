@@ -56,7 +56,7 @@ public class AccountTest extends FunctionalTest{
 
     @Test
     public void addAccount() {
-        String unique = "RestAssured_" + UUID.randomUUID().toString().substring(0, 9);
+        String unique = "Account_RestAssured_" + UUID.randomUUID().toString().substring(0, 9);
         Account account = new Account(unique, EPlatform.PC);
 
         given()

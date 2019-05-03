@@ -23,13 +23,24 @@ public class PlayedMatch {
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @Transient
     private Date date_unparsed = new Date();
-
     private String date = dateFormat.format(date_unparsed);
 
-
-    private Integer winningTeam;
+    private Integer winningTeam = 1;
+    private Float duration = 60.0f;
+    private Integer gamemodeId = 1;
 
     public PlayedMatch() {
+    }
+
+    public PlayedMatch(String date, Integer winningTeam, Float duration) {
+        this.date = date;
+        this.winningTeam = winningTeam;
+        this.duration = duration;
+    }
+
+    public PlayedMatch(Integer winningTeam, Float duration) {
+        this.winningTeam = winningTeam;
+        this.duration = duration;
     }
 
     public Integer getId() {
@@ -54,5 +65,21 @@ public class PlayedMatch {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Float getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Float duration) {
+        this.duration = duration;
+    }
+
+    public Integer getGamemodeId() {
+        return gamemodeId;
+    }
+
+    public void setGamemodeId(Integer gamemodeId) {
+        this.gamemodeId = gamemodeId;
     }
 }

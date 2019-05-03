@@ -1,5 +1,5 @@
 import Domains.Gamemode;
-import Domains.Hero;
+import Domains.PlayedMatch;
 import org.testng.annotations.Test;
 
 import java.util.UUID;
@@ -8,14 +8,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class GamemodeTest extends FunctionalTest{
+public class PlayedMatchTest extends FunctionalTest{
 
     @Test
     public void basicPingTest() {
         given()
                 .log().all()
                 .when()
-                .get("/gamemode")
+                .get("/match")
                 .then()
                 .statusCode(200);
     }
@@ -25,16 +25,16 @@ public class GamemodeTest extends FunctionalTest{
         given()
                 .log().all()
                 .when()
-                .get("/gamemode/test").then()
+                .get("/match/test").then()
                 .statusCode(404);
     }
 
     @Test
-    public void getGamemodeById() {
+    public void getMatchById() {
         given()
                 .log().all()
                 .when()
-                .get("/gamemode/1")
+                .get("/match/1")
                 .then()
                 .statusCode(200)
                 .assertThat()
@@ -42,11 +42,11 @@ public class GamemodeTest extends FunctionalTest{
     }
 
     @Test
-    public void getAllGamemodes() {
+    public void getAllMatches() {
         given()
                 .log().all()
                 .when()
-                .get("/gamemode")
+                .get("/match")
                 .then()
                 .statusCode(200)
                 .assertThat()
@@ -54,17 +54,16 @@ public class GamemodeTest extends FunctionalTest{
     }
 
     @Test
-    public void addGamemode() {
-        String unique = "Gamemode_RestAssured_" + UUID.randomUUID().toString().substring(0, 9);
-        Gamemode gamemode = new Gamemode(unique, "Created by RestAssured.", 10.0f);
+    public void addMatch() {
+        PlayedMatch match = new PlayedMatch();
 
         given()
                 .log().all()
                 .contentType("application/json")
-                .body(gamemode)
-                .when().post("/gamemode").then()
+                .body(match)
+                .when().post("/match").then()
                 .statusCode(200)
                 .assertThat()
-                .body(equalTo(gamemode.getName() + " has been added."));
+                .body(equalTo("New match has been added."));
     }
 }

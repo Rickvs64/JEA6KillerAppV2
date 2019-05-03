@@ -57,7 +57,7 @@ public class HeroTest extends FunctionalTest{
 
     @Test
     public void addHero() {
-        String unique = "RestAssured_" + UUID.randomUUID().toString().substring(0, 9);
+        String unique = "Hero_RestAssured_" + UUID.randomUUID().toString().substring(0, 9);
         Hero hero = new Hero(unique, "Created by RestAssured.");
 
         given()
