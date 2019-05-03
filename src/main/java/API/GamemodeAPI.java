@@ -1,6 +1,8 @@
 package API;
 
+import Domains.Gamemode;
 import Domains.Hero;
+import Repositories.GamemodeRepo;
 import Repositories.HeroRepo;
 import org.json.JSONObject;
 
@@ -14,35 +16,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Path("/hero")
-public class HeroAPI {
+@Path("/gamemode")
+public class GamemodeAPI {
 
     @Inject
-    private HeroRepo heroRepo;
+    private GamemodeRepo gamemodeRepo;
 
     @GET
-    public List<Hero> getAllHeroes() {
-        return heroRepo.getAllHeroes();
+    public List<Gamemode> getAllGamemodes() {
+        return gamemodeRepo.getAllGamemodes();
     }
 
     @Path("/{ID}")
     @GET
-    public Hero getHeroById(@PathParam("ID") Integer id) {
-        return heroRepo.getHeroById(id);
+    public Gamemode getGamemodeById(@PathParam("ID") Integer id) {
+        return gamemodeRepo.getGamemodeById(id);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String addHero(Hero hero) {
+    public String addGamemode(Gamemode gamemode) {
         // We will return a custom string
         String response = "";
 
-        if (heroRepo.addHero(hero)) {
-            response = hero.getName() + " has been added.";
+        if (gamemodeRepo.addGamemode(gamemode)) {
+            response = gamemode.getName() + " has been added.";
         }
         else {
-            response = hero.getName() + " could NOT be added.";
+            response = gamemode.getName() + " could NOT be added.";
         }
 
         return response;
@@ -64,10 +66,10 @@ public class HeroAPI {
     private Map<String, String> getAllLinks(UriInfo uriInfo) {
         Map<String, String> links = new HashMap<>();
 
-        String base = uriInfo.getBaseUri().toString() + "hero/";
+        String base = uriInfo.getBaseUri().toString() + "gamemode/";
         links.put("GET all", base);
         links.put("GET by id", base + "[ID]");
-        links.put("POST new hero", base);
+        links.put("POST new gamemode", base);
 
         return links;
     }

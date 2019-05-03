@@ -28,7 +28,7 @@ public class GamemodeRepo {
 
 
     public Gamemode getGamemodeById(Integer id) {
-        return em.find(Hero.class, id);
+        return em.find(Gamemode.class, id);
     }
 
 

@@ -65,7 +65,7 @@ public class AccountAPI {
     /**
      * Get all links (url's)
      * Based on Alex Kir's manual implementation
-     * @return
+     * @return Map of all links on this endpoint
      */
     private Map<String, String> getAllLinks(UriInfo uriInfo) {
         Map<String, String> links = new HashMap<>();
@@ -80,6 +80,7 @@ public class AccountAPI {
     /**
      * Get relevant links from other endpoints
      * todo: fill with methods from other endpoints once those are implemented
+     * @Return Map of all relevant links from other endpoints
      */
     private Map<String, String> getRelevantLinks(UriInfo uriInfo, Integer accountId) {
         Map<String, String> links = new HashMap<>();
