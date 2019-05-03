@@ -5,6 +5,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * A PlayedMatch object is a match recorded in players' match history. These aren't meant to ever be changed.
+ */
 @Entity
 public class PlayedMatch {
 

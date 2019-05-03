@@ -3,6 +3,9 @@ package Domains;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * A Hero is a playable character in the game. Their difficulty ranges from one to five.
+ */
 @Entity
 public class Hero {
 

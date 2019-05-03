@@ -2,6 +2,9 @@ package Domains;
 
 import javax.persistence.*;
 
+/**
+ * The Gamemode class is responsible holding important gameplay-related data such as respawn time.
+ */
 @Entity
 public class Gamemode {
 
@@ -11,10 +14,16 @@ public class Gamemode {
 
     private String name;
     private String description;
-    private Float respawnTime;
+    private Float respawnTime = 10.0f;
 
     public Gamemode() {
 
+    }
+
+    public Gamemode(String name, String description, Float respawnTime) {
+        this.name = name;
+        this.description = description;
+        this.respawnTime = respawnTime;
     }
 
 

@@ -7,6 +7,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * The account class holds all information about a user.
+ * Users playing the game have ONE account PER platform.
+ */
 @Entity
 public class Account implements Serializable {
 

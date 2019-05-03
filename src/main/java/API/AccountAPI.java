@@ -2,7 +2,6 @@ package API;
 
 import Domains.Account;
 import Repositories.AccountRepo;
-import io.restassured.mapper.ObjectMapper;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
@@ -70,8 +69,6 @@ public class AccountAPI {
      */
     private Map<String, String> getAllLinks(UriInfo uriInfo) {
         Map<String, String> links = new HashMap<>();
-        Link link = Link.fromUriBuilder(uriInfo.getBaseUriBuilder()
-                .path("[ID]")).build();
         String base = uriInfo.getBaseUri().toString() + "account/";
         links.put("GET all", base);
         links.put("GET by id", base + "[ID]");
