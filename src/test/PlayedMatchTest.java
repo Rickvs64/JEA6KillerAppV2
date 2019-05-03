@@ -54,7 +54,7 @@ public class PlayedMatchTest extends FunctionalTest{
     }
 
     @Test
-    public void addMatch() {
+    public void addEmptyMatch() {
         PlayedMatch match = new PlayedMatch();
 
         given()

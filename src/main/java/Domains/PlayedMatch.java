@@ -23,7 +23,7 @@ public class PlayedMatch {
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @Transient
     private Date date_unparsed = new Date();
-    private String date = dateFormat.format(date_unparsed);
+    private String actualDate = dateFormat.format(date_unparsed);
 
     private Integer winningTeam = 1;
     private Float duration = 60.0f;
@@ -33,7 +33,7 @@ public class PlayedMatch {
     }
 
     public PlayedMatch(String date, Integer winningTeam, Float duration) {
-        this.date = date;
+        actualDate = date;
         this.winningTeam = winningTeam;
         this.duration = duration;
     }
@@ -60,11 +60,11 @@ public class PlayedMatch {
     }
 
     public String getDate() {
-        return date;
+        return actualDate;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.actualDate = date;
     }
 
     public Float getDuration() {
