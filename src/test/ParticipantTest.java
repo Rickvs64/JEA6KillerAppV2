@@ -66,4 +66,16 @@ public class ParticipantTest extends FunctionalTest{
                 .assertThat()
                 .body(equalTo("Participant has been added."));
     }
+
+    @Test
+    public void getAllParticipantsByAccountId() {
+        given()
+                .log().all()
+                .when()
+                .get("/participant/byaccount/1")
+                .then()
+                .statusCode(200)
+                .assertThat()
+                .body("size()", greaterThan(0));
+    }
 }

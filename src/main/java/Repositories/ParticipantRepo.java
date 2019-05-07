@@ -61,4 +61,18 @@ public class ParticipantRepo {
         }
     }
 
+
+    /**
+     * Get all participant objects that belong to a given account.
+     * @param accountId ID of the account to search for.
+     * @return List of participants (matches this account participated in)
+     */
+    public List<Participant> getAllParticipantsByAccountId(Integer accountId) {
+        // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
+        //noinspection JpaQlInspection
+        return em.createQuery("SELECT p FROM Participant p WHERE p.accountId = :accountid", Participant.class)
+                .setParameter("accountid", accountId)
+                .getResultList();
+    }
+
 }

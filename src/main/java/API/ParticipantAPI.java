@@ -23,7 +23,7 @@ public class ParticipantAPI {
     private ParticipantRepo participantRepo;
 
     @GET
-    public List<Participant> getAllParticipant() {
+    public List<Participant> getAllParticipants() {
         return participantRepo.getAllParticipants();
     }
 
@@ -48,6 +48,12 @@ public class ParticipantAPI {
         }
 
         return response;
+    }
+
+    @Path("/byaccount/{ACCID}")
+    @GET
+    public List<Participant> getAllParticipantsByAccountId(@PathParam("ACCID") Integer accountId) {
+        return participantRepo.getAllParticipantsByAccountId(accountId);
     }
 
     @Path("/help")
