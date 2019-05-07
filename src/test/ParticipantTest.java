@@ -78,4 +78,16 @@ public class ParticipantTest extends FunctionalTest{
                 .assertThat()
                 .body("size()", greaterThan(0));
     }
+
+    @Test
+    public void getAllParticipantsByMatchId() {
+        given()
+                .log().all()
+                .when()
+                .get("/participant/bymatch/1")
+                .then()
+                .statusCode(200)
+                .assertThat()
+                .body("size()", greaterThan(0));
+    }
 }

@@ -56,6 +56,12 @@ public class ParticipantAPI {
         return participantRepo.getAllParticipantsByAccountId(accountId);
     }
 
+    @Path("/bymatch/{MATCHID}")
+    @GET
+    public List<Participant> getAllParticipantsByMatchId(@PathParam("MATCHID") Integer matchId) {
+        return participantRepo.getAllParticipantsByMatchId(matchId);
+    }
+
     @Path("/help")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

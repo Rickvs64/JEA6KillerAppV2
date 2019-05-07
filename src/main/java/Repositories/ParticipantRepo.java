@@ -75,4 +75,18 @@ public class ParticipantRepo {
                 .getResultList();
     }
 
+
+    /**
+     * Get all participant objects that belong to a given match.
+     * @param matchId ID of the match to get all participants of.
+     * @return List of participants (players that participated in this match).
+     */
+    public List<Participant> getAllParticipantsByMatchId(Integer matchId) {
+        // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
+        //noinspection JpaQlInspection
+        return em.createQuery("SELECT p FROM Participant p WHERE p.matchId = :matchid", Participant.class)
+                .setParameter("matchid", matchId)
+                .getResultList();
+    }
+
 }
