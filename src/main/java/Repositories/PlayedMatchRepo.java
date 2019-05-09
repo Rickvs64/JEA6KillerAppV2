@@ -42,6 +42,20 @@ public class PlayedMatchRepo {
 
 
     /**
+     * Return a list of matches played by the given account.
+     * @param accId ID of the corresponding account.
+     * @return List of matches this account participated in.
+     */
+    public List<PlayedMatch> getMatchesByAccountId(Integer accId) {
+        // For some reason this query isn't fully recognized as valid, so the below comment blocks it from QlInspections.
+        //noinspection JpaQlInspection
+        return em.createQuery("SELECT m FROM PlayedMatch m INNER JOIN Participant p ON m.id = p.matchId WHERE p.accountId = :accid", PlayedMatch.class)
+                .setParameter("accid", accId)
+                .getResultList();
+    }
+
+
+    /**
      * Persist a given match to store in the database.
      * @param match Match object to persist.
      * @return Boolean that returns FALSE if this action fails for any reason.

@@ -12,6 +12,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +60,14 @@ public class PlayedMatchAPI {
         response.put("links", getAllLinks(uriInfo));
         return Response.ok(response.toString()).build();
     }
+
+    @Path("/byaccount/{ID}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<PlayedMatch> getMatchesById(@PathParam("ID") Integer accid) {
+        return matchRepo.getMatchesByAccountId(accid);
+    }
+
 
     /**
      * Get all links (url's)
