@@ -1,7 +1,9 @@
 package API;
 
+import Domains.Account;
 import Domains.Hero;
 import Domains.Participant;
+import Repositories.AccountRepo;
 import Repositories.HeroRepo;
 import Repositories.ParticipantRepo;
 import org.json.JSONObject;
@@ -12,6 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +24,12 @@ public class ParticipantAPI {
 
     @Inject
     private ParticipantRepo participantRepo;
+
+    @Inject
+    private AccountRepo accRepo;
+
+    @Inject
+    private HeroRepo heroRepo;
 
     @GET
     public List<Participant> getAllParticipants() {
@@ -56,10 +65,25 @@ public class ParticipantAPI {
         return participantRepo.getAllParticipantsByAccountId(accountId);
     }
 
+    // Also returns accounts and heroes
     @Path("/bymatch/{MATCHID}")
     @GET
-    public List<Participant> getAllParticipantsByMatchId(@PathParam("MATCHID") Integer matchId) {
-        return participantRepo.getAllParticipantsByMatchId(matchId);
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllParticipantsByMatchId(@PathParam("MATCHID") Integer matchId) {
+        List<Participant> participants = participantRepo.getAllParticipantsByMatchId(matchId);
+        List<Account> accounts = new ArrayList<Account>();
+        List<Hero> heroes = new ArrayList<Hero>();
+
+        for (Participant participant : participants) {
+            accounts.add(accRepo.getAccountById(participant.getAccountId()));
+            heroes.add(heroRepo.getHeroById(participant.getHeroId()));
+        }
+
+        JSONObject response = new JSONObject();
+        response.put("result_participants", participants);
+        response.put("result_accounts", accounts);
+        response.put("result_heroes", heroes);
+        return Response.ok(response.toString()).build();
     }
 
     @Path("/help")
