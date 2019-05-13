@@ -1,16 +1,13 @@
 package API;
 
 import Domains.Account;
-import Domains.Participant;
 import Repositories.AccountRepo;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Path("/account")
@@ -88,9 +85,9 @@ public class AccountAPI {
     private Map<String, String> getRelevantLinks(UriInfo uriInfo, Integer accountId) {
         Map<String, String> links = new HashMap<>();
 
-        String base = uriInfo.getBaseUri().toString() + "account/";
-        // now fill it with methods from other restpoints
-        // use accountId so they're already relevant for this particular account
+        String base = uriInfo.getBaseUri().toString();
+        links.put("GET all participants by account ID", base + "participant/byaccount/" + accountId);
+        links.put("GET all matches by account ID", base + "match/byaccount/" + accountId);
 
         return links;
     }
