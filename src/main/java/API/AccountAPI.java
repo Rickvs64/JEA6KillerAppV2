@@ -79,7 +79,6 @@ public class AccountAPI {
 
     /**
      * Get relevant links from other endpoints
-     * todo: fill with methods from other endpoints once those are implemented
      * @Return Map of all relevant links from other endpoints
      */
     private Map<String, String> getRelevantLinks(UriInfo uriInfo, Integer accountId) {
